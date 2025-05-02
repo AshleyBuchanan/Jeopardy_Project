@@ -1,0 +1,94 @@
+body {
+    background-color: blue;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#container {
+    height: 100%;
+    margin: 50px;
+    border: 10px solid black;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+}
+
+.board-column {
+    background-color: var(--color-1);
+    background-image: linear-gradient(90deg,
+            var(--color-1) 9.4%,
+            var(--color-0) 50.9%,
+            var(--color-1) 86.3%);
+    padding: 60px 30px;
+    border: 5px solid black;
+    flex: 0 1 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-column-inner {
+    background-color: hsl(39, 100%, 50%);
+    background-image: linear-gradient(90deg,
+            var(--color-8) 9.4%,
+            var(--color-9) 50.9%,
+            var(--color-8) 86.3%);
+    border: 5px solid black;
+    flex: 1 1 8%;
+}
+
+#game-backdrop {
+    border: 8px solid black;
+    background-color: var(--color-6);
+    background-image: linear-gradient(0deg,
+            var(--color-6) 9.4%,
+            var(--color-7) 70.9%,
+            var(--color-6) 86.3%);
+    padding: 20px;
+    flex: 1 1 92%;
+    display: flex;
+    flex-direction: row;
+}
+
+#game-board {
+    border: 5px solid black;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-row {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+.game-cube {
+    background-color: var(--color-2);
+    box-shadow: 0 0 5px var(--color-2);
+    flex: 1 1 15%;
+    border: 5px solid black;
+    border-radius: 10px;
+    transition: all 250ms;
+}
+
+.game-cube:hover {
+    background-color: var(--color-1);
+    box-shadow: 0 0 20px var(--color-1);
+}
+
+:root {
+    --color-0: hsl(219, 91%, 61%);
+    --color-1: #115ff4;
+    --color-2: #060ce9;
+    --color-3: #28a200;
+    --color-4: #8d2ab5;
+    --color-5: #74119c;
+    --color-6: hsl(0, 0%, 9%);
+    --color-7: #777777;
+    --color-8: hsl(39, 100%, 30%);
+    --color-9: hsl(39, 100%, 50%);
+}

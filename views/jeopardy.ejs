@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy without Money</title>
+    <link rel="stylesheet" href="jeopardy.css">
+</head>
+<body>
+    <div id="container">
+        <div class="board-column">
+            <% for(let k=0; k<12; k++){ %>
+                <div class="board-column-inner"></div>
+            <% } %>
+        </div>
+        <div id="game-backdrop">
+            <div id="game-board">
+                <% for(let i=0; i<6; i++){ %>
+                    <div class="game-row">
+                        <% for(let j=0; j<6; j++){ %>
+                            <div class="game-cube"></div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="board-column">
+            <% for(let k=0; k<12; k++){ %>
+                <div class="board-column-inner"></div>
+            <% } %>
+        </div>
+    </div>
+    <script src="/jeopardy.js"></script>
+</body>
+</html>
