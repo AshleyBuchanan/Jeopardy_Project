@@ -7,7 +7,7 @@ const blocks = document.querySelectorAll('.game-cube');
     let data = [];
 
     function addDisplayText(selectable, block, data, count) {
-        console.log(data);
+        //console.log(data);
         switch (selectable) {
             case true:
                 setTimeout(() => {
@@ -19,10 +19,19 @@ const blocks = document.querySelectorAll('.game-cube');
                 }, 1800 + (100 * count));
 
                 block.addEventListener('click', (event) => {
-                    console.log(block.dataset.answer);
-                    block.innerText = block.dataset.question;
-                    block.classList.remove('clues');
-                    block.classList.add('questions');
+                    if (block.innerText === '?') {
+                        //console.log(block.dataset.answer);
+                        block.innerText = block.dataset.question;
+                        block.classList.remove('clues');
+                        block.classList.add('questions');
+                    } else if (block.innerText == block.dataset.question) {
+                        block.innerText = block.dataset.answer;
+                    } else {
+                        // block.innerText = '';
+                        block.classList.remove('questions');
+                        block.classList.add('empty');
+                        block.removeEventListener('click', {}, true);
+                    }
                 });
                 break;
 
@@ -42,7 +51,7 @@ const blocks = document.querySelectorAll('.game-cube');
             const res = await fetch('/jeopardy/categories');
             if (!res.ok) throw new Error('Fetch failed');
             data = await res.json();
-            console.log(data);
+            //console.log(data);
             for (let i = 0; i < 6; i++) {
                 addDisplayText(false, blocks[i], await data[i].title, i);
             }
